@@ -1,0 +1,35 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Результаты: {{ quiz.title }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header bg-success text-white">
+        <h3>Ваш результат: {{ correct_count }} из {{ total_count }}</h3>
+        <h4>Процент: {{ percentage|floatformat:1 }}%</h4>
+    </div>
+    <div class="card-body">
+        {% for result in results %}
+        <div class="mb-3 p-3 border rounded {% if result.is_correct %}bg-success bg-opacity-10{% else %}bg-danger bg-opacity-10{% endif %}">
+            <h5>{{ forloop.counter }}. {{ result.question.text }}</h5>
+            <p>✅ Правильный ответ: {{ result.correct_choice }}</p>
+            {% if result.explanation %}
+            <p><strong>Пояснение:</strong> {{ result.explanation }}</p>
+            {% endif %}
+            {% if not result.is_correct %}
+            <p>❌ Ваш ответ: {{ result.user_choice|default:"Не выбран" }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <div class="d-flex gap-2 mt-4">
+            <a href="{% url 'quiz_list' %}" class="btn btn-primary">
+                К списку тестов
+            </a>
+
+            <a href="{% url 'stats' %}" class="btn btn-primary">
+                К статистике
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

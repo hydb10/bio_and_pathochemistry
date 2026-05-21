@@ -1,0 +1,48 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Статистика{% endblock %}
+
+{% block content %}
+<h2 class="text-white mb-4">Статистика</h2>
+
+<div class="row">
+    {% for r in results %}
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <a href="{% url 'result_detail' r.id %}" style="text-decoration: none; color: inherit;">
+
+            <div class="card h-100 shadow"
+                 style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+
+                <div class="card-body">
+                    <h5 class="text-white">{{ r.quiz.title }}</h5>
+
+                    <span class="badge bg-primary">
+                        {{ r.score }} / {{ r.total }}
+                    </span>
+
+                    {% widthratio r.score r.total 100 as percent %}
+
+                    <div class="progress mt-2" style="height: 10px;">
+                        <div class="progress-bar" style="width: {{ percent }}%;"></div>
+                    </div>
+
+                    <small class="text-light">{{ percent }}%</small>
+
+                    <div class="text-secondary mt-1" style="font-size: 12px;">
+                        {{ r.created_at|date:"d.m.Y H:i" }}
+                    </div>
+                </div>
+
+            </div>
+
+        </a>
+    </div>
+
+    {% empty %}
+    <div class="col-12 text-center text-white">
+        <p>Вы ещё не проходили тесты</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

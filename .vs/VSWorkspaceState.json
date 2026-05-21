@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\quiz",
+    "\\quiz\\static",
+    "\\quiz\\static\\quiz",
+    "\\quiz\\static\\quiz\\images",
+    "\\quiz\\templates",
+    "\\quiz\\templates\\quiz",
+    "\\quiz\\__pycache__",
+    "\\quiz_project",
+    "\\quiz_project\\__pycache__",
+    "\\venv"
+  ],
+  "SelectedNode": "\\quiz\\models.py",
+  "PreviewInSolutionExplorer": false
+}

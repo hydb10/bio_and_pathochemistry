@@ -1,0 +1,518 @@
+/* Импорт шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+/* Глобальные переменные */
+:root {
+    --bg-gradient-start: #0a0a2a;
+    --bg-gradient-end: #1a0a2e;
+    --bg-secondary: #111122;
+    --bg-card: rgba(26, 26, 58, 0.85);
+    --bg-hover: rgba(34, 34, 68, 0.9);
+    --text-primary: #ffffff;
+    --text-secondary: #c0c0c0;
+    --accent-start: #3b82f6;
+    --accent-end: #8b5cf6;
+    --accent-hover-start: #2563eb;
+    --accent-hover-end: #7c3aed;
+    --success: #10b981;
+    --danger: #ef4444;
+    --border: rgba(59, 130, 246, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Единый фон */
+html {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 18px;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Навигационная панель */
+.navbar {
+    background: rgba(17, 17, 34, 0.95) !important;
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0 !important;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.2rem, 6vw, 2.5rem) !important;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    transition: opacity 0.3s ease;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    text-align: center;
+    line-height: 1.2;
+}
+
+    .navbar-brand:hover {
+        opacity: 0.8;
+    }
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #ffffff, #c0c0c0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    word-wrap: break-word;
+}
+
+h3, h4, h5 {
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+/* Карточки */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+    .card:hover {
+        transform: translateY(-8px);
+        border-color: var(--accent-start);
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+    }
+
+.card-body {
+    padding: clamp(1rem, 4vw, 2rem);
+}
+
+.card-title {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    word-wrap: break-word;
+}
+
+.card-text {
+    color: var(--text-secondary);
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Кнопки */
+.btn {
+    padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 28px);
+    font-size: clamp(0.85rem, 3vw, 1rem);
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    letter-spacing: -0.2px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    color: white;
+}
+
+    .btn:hover {
+        background: linear-gradient(135deg, var(--accent-hover-start), var(--accent-hover-end));
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn:active {
+        transform: scale(0.98);
+    }
+
+/* Кнопка "Назад" */
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+}
+
+    .btn-secondary:hover {
+        background: linear-gradient(135deg, #5a6268, #4e555b);
+        box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
+    }
+
+@media (max-width: 480px) {
+    .btn {
+        white-space: normal;
+        width: 100%;
+    }
+}
+
+/* Карточка вопроса */
+.card-header {
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end)) !important;
+    padding: clamp(1rem, 4vw, 1.5rem) !important;
+    border-bottom: none !important;
+}
+
+    .card-header h4 {
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
+        font-weight: 700;
+        margin-bottom: 0;
+        word-wrap: break-word;
+    }
+
+.d-flex.justify-content-between.align-items-center {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    padding: 6px 12px !important;
+    border-radius: 40px !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .badge {
+        white-space: normal;
+        font-size: 0.7rem !important;
+    }
+}
+
+/* Формы */
+.form-check {
+    padding: clamp(0.75rem, 3vw, 1rem);
+    margin-bottom: 0.75rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+    .form-check:hover {
+        background: var(--bg-hover);
+        border-color: var(--accent-start);
+        transform: translateX(4px);
+    }
+
+.form-check-input {
+    width: clamp(18px, 4vw, 20px);
+    height: clamp(18px, 4vw, 20px);
+    margin: 0;
+    margin-right: 12px;
+    flex-shrink: 0;
+    cursor: pointer;
+    background-color: var(--bg-primary);
+    border-color: var(--border);
+}
+
+    .form-check-input:checked {
+        background-color: var(--accent-start);
+        border-color: var(--accent-start);
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+
+.form-check-label {
+    font-size: clamp(0.95rem, 3.5vw, 1.05rem);
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text-primary);
+    flex: 1;
+    word-wrap: break-word;
+}
+
+/* Результаты */
+.bg-success.bg-opacity-10,
+.bg-danger.bg-opacity-10,
+.border.rounded,
+.border.rounded * {
+    color: #ffffff !important;
+}
+
+.bg-success.bg-opacity-10 {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border-left: 4px solid var(--success) !important;
+}
+
+.bg-danger.bg-opacity-10 {
+    background: rgba(239, 68, 68, 0.15) !important;
+    border-left: 4px solid var(--danger) !important;
+}
+
+.border.rounded {
+    border-radius: 12px !important;
+    padding: clamp(0.75rem, 3vw, 1rem) !important;
+    margin-bottom: 0.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border) !important;
+}
+
+    .border.rounded h5 {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .border.rounded p {
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
+        margin-bottom: 0.25rem;
+    }
+
+/* Карточка результата */
+.card-header.bg-success {
+    background: linear-gradient(135deg, var(--success), #059669) !important;
+    padding: clamp(0.75rem, 3vw, 1rem) clamp(1rem, 4vw, 1.5rem) !important;
+}
+
+    .card-header.bg-success h3,
+    .card-header.bg-success h4 {
+        color: #ffffff !important;
+    }
+
+    .card-header.bg-success h3 {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+        margin-bottom: 0.25rem;
+    }
+
+    .card-header.bg-success h4 {
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    }
+
+/* Анимация */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card, .card-body, .features {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Алерты */
+.alert {
+    border-radius: 12px;
+    padding: clamp(0.75rem, 3vw, 1rem) clamp(1rem, 4vw, 1.5rem);
+    font-weight: 500;
+    border: none;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent-start);
+}
+
+.alert-success {
+    border-left-color: var(--success);
+}
+
+.alert-warning {
+    border-left-color: var(--danger);
+}
+
+/* Адаптивность */
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .card-body {
+        padding: 1.25rem;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col-md-6 {
+        width: 100%;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0.75rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .card {
+        border-radius: 16px;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .d-flex.gap-2 {
+        flex-direction: column;
+        gap: 8px !important;
+    }
+
+    .form-check {
+        padding: 0.75rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.3rem !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .card-body {
+        padding: 0.75rem;
+    }
+
+    .form-check {
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+    }
+}
+
+/* Скроллбар и общие стили */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 5px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-start);
+    }
+
+a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.text-muted {
+    color: var(--text-secondary) !important;
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+}
+
+.card, .form-check, .btn {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+}
+
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+    padding: 0 0.5rem;
+}
+
+@media (max-width: 992px) {
+    .col-md-6 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    button, .btn, .form-check {
+        min-height: 44px;
+    }
+}
