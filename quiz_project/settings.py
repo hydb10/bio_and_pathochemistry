@@ -4,9 +4,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-r-t=_s_up+$!*5&cdq*v5cy$dw&!o++0f-82*aoq$e4pefcqz+'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "bio-and-pathochemistry-1.onrender.com",
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
