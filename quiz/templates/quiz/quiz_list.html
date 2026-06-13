@@ -3,9 +3,10 @@
 {% block title %}Тренажер по биохимии и патохимии{% endblock %}
 
 {% block content %}
-<h2 class="mb-3">Тренажеры по биохимии</h2>
-<div class="row mb-4">
-    {% for quiz in bio_quizzes %}
+
+<h2 class="mb-3">Тренажеры по патохимии</h2>
+<div class="row">
+    {% for quiz in patho_quizzes %}
     <div class="col-12 col-sm-6 col-lg-4 mb-3">
         <div class="card h-100">
             <div class="card-body d-flex flex-column">
@@ -21,9 +22,9 @@
     {% endfor %}
 </div>
 
-<h2 class="mb-3">Тренажеры по патохимии</h2>
-<div class="row">
-    {% for quiz in patho_quizzes %}
+<h2 class="mb-3">Тренажеры по биохимии</h2>
+<div class="row mb-4">
+    {% for quiz in bio_quizzes %}
     <div class="col-12 col-sm-6 col-lg-4 mb-3">
         <div class="card h-100">
             <div class="card-body d-flex flex-column">
