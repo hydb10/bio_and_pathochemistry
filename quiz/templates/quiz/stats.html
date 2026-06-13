@@ -14,7 +14,7 @@
                  style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
 
                 <div class="card-body">
-                    <h5 class="text-white">{{ r.quiz.title }}</h5>
+                    <h5 class="text-dark">{{ r.quiz.title }}</h5>
 
                     <span class="badge bg-primary">
                         {{ r.score }} / {{ r.total }}
@@ -26,7 +26,7 @@
                         <div class="progress-bar" style="width: {{ percent }}%;"></div>
                     </div>
 
-                    <small class="text-light">{{ percent }}%</small>
+                    <small class="text-dark">{{ percent }}%</small>
 
                     <div class="text-secondary mt-1" style="font-size: 12px;">
                         {{ r.created_at|date:"d.m.Y H:i" }}
