@@ -25,7 +25,7 @@ class Quiz(models.Model):
 
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name='questions', verbose_name='Викторина')
-    text = models.CharField('Текст вопроса', max_length=500)
+    text = models.CharField('Текст вопроса', max_length=2000)
     explanation = models.TextField('Пояснение', blank=True)
     order = models.IntegerField('Порядок', default=0)
     
@@ -41,7 +41,7 @@ class Question(models.Model):
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='choices', verbose_name='Вопрос')
-    text = models.CharField('Текст ответа', max_length=300)
+    text = models.CharField('Текст ответа', max_length=1000)
     is_correct = models.BooleanField('Правильный ответ', default=False)
     
     def __str__(self):
